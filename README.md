@@ -5,14 +5,14 @@
 
 <div align="center">
    
-<h1>Les microservices avec Django et RabbitMQ.</h1>
-<h3 align="center"> Dans ce projet, nous reprenons notre application blog disponible <a href="https://github.com/joelproxi/myblog">Ici</a>. <br> Nous sommes donc allé de l'architecture monolithic vers l'achitechture microservice. 
+<h1>Build Blog App with Django Framework and Apache-Kafka using Microservices architecture .</h1>
+<h3 align="center"> In this project, we are going to transfrom a blog app in monolihtic architecture on micriservice architechture using django and apache kafka <a href="https://github.com/joelproxi/myblog">
 </h3>
 </div>
 
 <br>
 
-<p><em><u>NB:</u> Ce tuto n'est pas fait pour les débutants</em></p>
+<p><em><u>NB:</u> This tutoriel it's not for beginers</em></p>
 
 
 <!-- INSTALLATION -->
@@ -54,25 +54,28 @@
    pip install -r requirements.txt
    ```
 
-7. You need 4 shells to run the program
-    * Move to posts project folder and run these following command :
-        * In the first shell
-            ```sh
-            python comsumer.py
-            ```
-        * In the second shell
-            ```sh
-            python manage.py runserver localhost:8000
-            ```
-    * And the end, move to comments project folder and run these following command :
-        * In the first shell
-            ```sh
-            python comsumer.py
-            ```
-        * In the second shell
-            ```sh
-            python manage.py runserver localhost:8001
-            ```
+7. How to run the application
+    * Using Docker: docker-compose up
+
+    * Using shell commands
+        * Move to posts project folder and run these following command :
+            * In the first shell
+                ```sh
+                python comsumer.py
+                ```
+            * In the second shell
+                ```sh
+                python manage.py runserver localhost:8000
+                ```
+        * And the end, move to comments project folder and run these following command :
+            * In the first shell
+                ```sh
+                python comsumer.py
+                ```
+            * In the second shell
+                ```sh
+                python manage.py runserver localhost:8001
+                ```
 
 8. Open a browseable api like Postman, start the test and enjoy!!
 
