@@ -13,7 +13,7 @@ from apps.serializers import CommentSerializer
 
 
 conf = {
-	'bootstrap.servers': 'localhost:8000',
+	'bootstrap.servers': 'localhost:9092',
 	'group.id': 'blog',
 	'auto.offset.reset': 'earliest'
 }
@@ -38,7 +38,8 @@ while True:
 			"id": data["id"],
 			'content': data['content'],
 			'author': data['author'],
-			'created_at': datetime.strptime(data['created_at'], '%Y-%m-%dT%H:%M:'),
+			'post_id': data['post_id'],
+			'created_at': data['created_at'],
 			'updated_at': data['updated_at']
 		})
 		serializer.is_valid(raise_exception=True)
@@ -53,7 +54,8 @@ while True:
 				"id": data["id"],
 				'content': data['content'],
 				'author': data['author'],
-				'created_at': datetime.strptime(data['created_at'], '%Y-%m-%dT%H:%M:'),
+				'post_id': data['post_id'],
+				'created_at': data['created_at'],
 				'updated_at': data['updated_at']
 			})
 			serializer.is_valid(raise_exception=True)

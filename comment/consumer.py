@@ -41,7 +41,7 @@ while True:
 			'title': data['title'],
 			'content': data['content'],
 			'author': data['author'],
-			'created_at': datetime.strptime(data['created_at'], '%Y-%m-%dT%H:%M:'),
+			'created_at': data['created_at'],
 			'updated_at': data['updated_at']
 		})
 		serializer.is_valid(raise_exception=True)

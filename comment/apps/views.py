@@ -23,11 +23,11 @@ class CommentViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         serializer = CommentSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        print(self.kwargs)
         self.perform_create(serializer=serializer)
-        producer.produce("django-blog-comment", key="post-created",
-                         value=json.dumps(serializer.data), callback=self.acker()
+        producer.produce("django-blog-comment", key="comment-created",
+                         value=json.dumps(serializer.data), callback=self.acker
                          )
+        print(serializer.data)
         return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
     def update(self, request, *args, **kwargs):
@@ -35,9 +35,10 @@ class CommentViewSet(viewsets.ModelViewSet):
         serializer = CommentSerializer(instance=instance, data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
-        producer.produce("django-blog-comment", key="post-updated",
-                         value=json.dumps(serializer.data), callback=self.acker()
+        producer.produce("django-blog-comment", key="comment-updated",
+                         value=json.dumps(serializer.data), callback=self.acker
                          )
+        print(serializer.data)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
 
     def destroy(self, request, *args, **kwargs):
@@ -45,8 +46,8 @@ class CommentViewSet(viewsets.ModelViewSet):
         data = self.serializer_class(instance)
         print(data.data)
         self.perform_destroy(instance)
-        producer.produce("django-blog-comment", key="post-destroyed",
-                         value=json.dumps(data.data), callback=self.acker()
+        producer.produce("django-blog-comment", key="comment-destroyed",
+                         value=json.dumps(data.data), callback=self.acker
                          )
         return Response(data=data.data)
 
