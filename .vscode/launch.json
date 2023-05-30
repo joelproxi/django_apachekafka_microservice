@@ -1,0 +1,76 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Django pmk",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/post/manage.py",
+            "args": [
+                "makemigrations"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Django pm",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/post/manage.py",
+            "args": [
+                "migrate"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Django cmk",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/comment/manage.py",
+            "args": [
+                "makemigrations"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Django cm",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/comment/manage.py",
+            "args": [
+                "migrate"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Django comment",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/comment/manage.py",
+            "args": [
+                "runserver",
+                "localhost:8001"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Django post",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/post/manage.py",
+            "args": [
+                "runserver",
+                "localhost:8000"
+            ],
+            "django": true,
+            "justMyCode": true
+        }
+    ]
+}
